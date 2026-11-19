@@ -251,6 +251,9 @@ button.chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1p
 .mon.t6 { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 64' preserveAspectRatio='xMaxYMax meet'%3E%3Cpath d='M0 64 Q40 42 80 52 T120 46 V64Z' fill='%239dcf86'/%3E%3Cpath d='M50 64 Q85 52 120 58 V64Z' fill='%237dbb68'/%3E%3Crect x='82' y='32' width='22' height='18' fill='%23fff6e5'/%3E%3Cpath d='M79 33 L93 20 L107 33Z' fill='%23e0614f'/%3E%3Crect x='90' y='40' width='6' height='10' fill='%238a5a3a'/%3E%3Cg fill='%23f4c542'%3E%3Ccircle cx='66' cy='54' r='2.5'/%3E%3Ccircle cx='114' cy='54' r='2.5'/%3E%3C/g%3E%3C/svg%3E") right bottom / auto 100% no-repeat, linear-gradient(100deg, var(--bg) 40%, var(--tx, #e2f1dc) 100%); --tc: #e2f1dc; border-color: color-mix(in srgb, #1d4a21 25%, var(--line)); }
 .tcard.t6 { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 64' preserveAspectRatio='xMaxYMax meet'%3E%3Cpath d='M0 64 Q40 42 80 52 T120 46 V64Z' fill='%239dcf86'/%3E%3Cpath d='M50 64 Q85 52 120 58 V64Z' fill='%237dbb68'/%3E%3Crect x='82' y='32' width='22' height='18' fill='%23fff6e5'/%3E%3Cpath d='M79 33 L93 20 L107 33Z' fill='%23e0614f'/%3E%3Crect x='90' y='40' width='6' height='10' fill='%238a5a3a'/%3E%3Cg fill='%23f4c542'%3E%3Ccircle cx='66' cy='54' r='2.5'/%3E%3Ccircle cx='114' cy='54' r='2.5'/%3E%3C/g%3E%3C/svg%3E") right bottom / auto 70% no-repeat, linear-gradient(100deg, var(--bg) 35%, var(--tx, #e2f1dc) 100%); --tc: #e2f1dc; }
 .town.t6 { background: #e2f1dc; color: #1d4a21; }
+.mon.t7 { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 64' preserveAspectRatio='xMaxYMax meet'%3E%3Crect x='78' y='14' width='36' height='46' rx='6' fill='%23e45b5b'/%3E%3Crect x='84' y='22' width='24' height='16' rx='3' fill='%23cfe8f7'/%3E%3Ccircle cx='88' cy='50' r='3' fill='%23fff'/%3E%3C/svg%3E") right bottom / auto 100% no-repeat, linear-gradient(100deg, var(--bg) 40%, var(--tx, #fbe3e3) 100%); --tc: #fbe3e3; border-color: color-mix(in srgb, #5a1f1f 25%, var(--line)); }
+.tcard.t7 { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 64' preserveAspectRatio='xMaxYMax meet'%3E%3Crect x='78' y='14' width='36' height='46' rx='6' fill='%23e45b5b'/%3E%3Crect x='84' y='22' width='24' height='16' rx='3' fill='%23cfe8f7'/%3E%3Ccircle cx='88' cy='50' r='3' fill='%23fff'/%3E%3C/svg%3E") right bottom / auto 70% no-repeat, linear-gradient(100deg, var(--bg) 35%, var(--tx, #fbe3e3) 100%); --tc: #fbe3e3; }
+.town.t7 { background: #fbe3e3; color: #5a1f1f; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mon[class*=" t"], :root:not([data-theme="light"]) .tcard[class*=" t"] { --tx: color-mix(in srgb, var(--tc) 20%, var(--bg)); } }
 :root[data-theme="dark"] .mon[class*=" t"], :root[data-theme="dark"] .tcard[class*=" t"] { --tx: color-mix(in srgb, var(--tc) 20%, var(--bg)); }
 .mon .tsel, .mon .spec { position: relative; }
@@ -376,7 +379,7 @@ button.chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1p
       <button class="btn" id="moremon" type="button">Afficher plus</button>
     </section>
   </div>
-  <footer>Version 2.1.1 · Spécialités : Pokébip et Poképédia. Événements : sites officiels relayés par Gameblog et Pokékalos. Habitats, matériaux et Pokémon attirés : textes officiels du jeu (dépôt PokoHex) et base de données Pokopia de Xzonn, recoupés avec Pokébip et Gamosaurus.</footer>
+  <footer>Version 2.2 · Spécialités : Pokébip et Poképédia. Événements : sites officiels relayés par Gameblog et Pokékalos. Habitats, matériaux et Pokémon attirés : textes officiels du jeu (dépôt PokoHex) et base de données Pokopia de Xzonn, recoupés avec Pokébip et Gamosaurus.</footer>
 </div>
 
 <script>
@@ -422,20 +425,21 @@ const pkCats = PK.map(() => []);
 CATS.forEach((c, ci) => c[2].forEach(pi => pkCats[pi].push(ci)));
 const pkObjs = pkCats.map(cs => { const s = new Set(); cs.forEach(c => catObjs[c].forEach(o => s.add(o))); return s; });
 const pkNorm = PK.map(p => norm(p[0]));
+const NOFOYER = new Set(['Lugia', 'Ho-Oh', 'Kyogre'].map(n => PK.findIndex(p => p[0] === n)).filter(i => i >= 0));
 
 function inter(a, b) { let n = 0; const [s, l] = a.size < b.size ? [a, b] : [b, a]; s.forEach(x => { if (l.has(x)) n++; }); return n; }
 
 function search(q, exclude) {
   const n = norm(q); if (!n) return [];
   const out = [];
-  PK.forEach((p, i) => { if (exclude.includes(i)) return; const k = pkNorm[i]; const at = k.indexOf(n); if (at >= 0) out.push([at === 0 ? 0 : 1, k.length, i]); });
+  PK.forEach((p, i) => { if (exclude.includes(i) || NOFOYER.has(i)) return; const k = pkNorm[i]; const at = k.indexOf(n); if (at >= 0) out.push([at === 0 ? 0 : 1, k.length, i]); });
   return out.sort((a, b) => a[0] - b[0] || a[1] - b[1]).map(x => x[2]);
 }
 
 function candidates(foyer) {
   const out = [];
   for (let j = 0; j < PK.length; j++) {
-    if (foyer.includes(j)) continue;
+    if (foyer.includes(j) || NOFOYER.has(j)) continue;
     let fur = 0, pref = 0;
     foyer.forEach(m => { fur += inter(pkObjs[j], pkObjs[m]); pref += pkCats[j].filter(c => pkCats[m].includes(c)).length; });
     const tier = envTier(j, foyer);
@@ -492,7 +496,7 @@ const fr1 = n => (Math.round(n * 10) / 10).toString().replace('.', ',');
 const plural = (n, a, b) => n > 1 ? b : a;
 
 let foyer = [], shownCand = 12, shownFur = 15, active = -1, sugg = [];
-try { const s = JSON.parse(localStorage.getItem('affinites-foyer-v2') || 'null'); if (Array.isArray(s)) foyer = s.filter(i => PK[i]); } catch (e) {}
+try { const s = JSON.parse(localStorage.getItem('affinites-foyer-v2') || 'null'); if (Array.isArray(s)) foyer = s.filter(i => PK[i] && !NOFOYER.has(i)); } catch (e) {}
 
 try { const o = JSON.parse(localStorage.getItem('affinites-eff-v1') || 'null'); if (Array.isArray(o)) effOn = new Set(o.filter(e => EFF[e])); } catch (e) {}
 try { const v = +localStorage.getItem('affinites-envmode-v1'); if ([0, 1, 2].includes(v)) envMode = v; } catch (e) {}
@@ -696,7 +700,7 @@ function renderHabs() {
       <div class="hhead"><div style="min-width:0"><h3>${esc(h[2])}</h3><div class="meta"><span class="num">${hNum(h)}</span>${h[1] ? `<span class="zone z${h[1]}">${ZONES[h[1]]}</span>` : ''}${(() => { const k = h[4].filter(p => !has(p[0])).length; return Object.keys(towns).length && k ? `<span class="miss">${k} à découvrir</span>` : ''; })()}</div></div>
         <label class="builtbox"><input type="checkbox" data-built="${h[0]}"${b ? ' checked' : ''}> Construit</label></div>
       <div class="mats">${h[3].map(m => `<span class="mat">${mtile(m)}<span><b>${m[1]}×</b> ${esc(m[0])}</span></span>`).join('')}</div>
-      <ul class="hpk">${h[4].map(([i, r, l]) => `<li class="${fset.has(i) ? 'infoyer' : ''}">${av(i)}<div style="min-width:0"><div class="nm">${esc(PK[i][0])} <span class="num">${num(i)}</span></div><div class="tags">${rarTag(r)}${condTags(i, l)}${townTag(i)}</div></div>${fset.has(i) ? '' : `<button class="mini" type="button" data-add="${i}" data-stay="1">Ajouter au foyer</button>`}</li>`).join('')}</ul>
+      <ul class="hpk">${h[4].map(([i, r, l]) => `<li class="${fset.has(i) ? 'infoyer' : ''}">${av(i)}<div style="min-width:0"><div class="nm">${esc(PK[i][0])} <span class="num">${num(i)}</span></div><div class="tags">${rarTag(r)}${condTags(i, l)}${townTag(i)}</div></div>${fset.has(i) || NOFOYER.has(i) ? '' : `<button class="mini" type="button" data-add="${i}" data-stay="1">Ajouter au foyer</button>`}</li>`).join('')}</ul>
     </div></li>`;
   }).join('');
   $('morehab').hidden = shownHab >= list.length;
@@ -717,14 +721,15 @@ $('morehab').addEventListener('click', () => { shownHab += 30; renderHabs(); });
 /* ---- end habitats ---- */
 
 /* ---- spécialités, villes, événements ---- */
-const TOWNS = ['', 'Terrassec', 'Grisemer', 'Collinangle', 'Flotîles-Millefeux', 'Fonds-Bulleux', 'Ville-Nouvelle'];
+const TOWNS = ['', 'Terrassec', 'Grisemer', 'Collinangle', 'Flotîles-Millefeux', 'Fonds-Bulleux', 'Ville-Nouvelle', 'Pokédex'];
 const SP_ELEC = SPEC.n.findIndex(s => s[0] === 'Électrification'), SP_FIRE = SPEC.n.findIndex(s => s[0] === 'Combustion');
 let towns = {}, townMode = 0, specF = -1, mq = '', mtown = -1, shownMon = 40;
 try { const o = JSON.parse(localStorage.getItem('affinites-villes-v1') || 'null'); if (o && typeof o === 'object') for (const k in o) if (PK[k] && TOWNS[o[k]]) towns[k] = +o[k]; } catch (e) {}
 try { const v = +localStorage.getItem('affinites-townmode-v1'); if ([0, 1, 2].includes(v)) townMode = v; } catch (e) {}
 const saveTowns = () => { try { localStorage.setItem('affinites-villes-v1', JSON.stringify(towns)); localStorage.setItem('affinites-townmode-v1', String(townMode)); } catch (e) {} };
 const has = i => !!towns[i];
-const foyerTowns = () => [...new Set(foyer.map(m => towns[m]).filter(Boolean))].sort((a, b) => a - b);
+const DEX = TOWNS.indexOf('Pokédex');
+const foyerTowns = () => [...new Set(foyer.map(m => towns[m]).filter(t => t && t !== DEX))].sort((a, b) => a - b);
 function candOk(j) {
   if (specF >= 0 && !SPEC.p[j].includes(specF)) return false;
   if (townMode === 1 && !has(j)) return false;
@@ -801,7 +806,7 @@ function renderEvent() {
 
 function render() { renderEvent(); renderMons(); renderCandFilters(); renderHabs(); renderMembers(); renderEnv(); renderEnvMode(); renderPrefs(); renderEff(); renderCover(); renderFur(); renderCands(); save(); }
 
-function add(i) { if (!foyer.includes(i)) foyer.push(i); shownCand = 12; shownFur = 15; $('q').value = ''; hideSugg(); render(); }
+function add(i) { if (NOFOYER.has(i)) return; if (!foyer.includes(i)) foyer.push(i); shownCand = 12; shownFur = 15; $('q').value = ''; hideSugg(); render(); }
 
 function hideSugg() { $('sugg').hidden = true; $('q').setAttribute('aria-expanded', 'false'); active = -1; }
 function showSugg() {

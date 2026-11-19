@@ -4,6 +4,10 @@ Web app pour trouver les colocataires et les meubles qui plaisent à tout un foy
 
 En ligne : https://maaxxxnrg.github.io/pokopia-affinites/
 
+## Version 2.1.1
+
+- Les cartes de Mes Pokémon, les compteurs et les étiquettes de ville prennent un décor et une couleur propres à chaque ville.
+
 ## Version 2.1
 
 - **Spécialités** : les 33 spécialités en français sur chaque Pokémon, filtre « Spécialité » dans les colocataires, et le panneau Environnement indique qui peut allumer les lampes (Électrification) ou les feux (Combustion).

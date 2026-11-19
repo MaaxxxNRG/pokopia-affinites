@@ -4,6 +4,12 @@ Web app pour trouver les colocataires et les meubles qui plaisent à tout un foy
 
 En ligne : https://maaxxxnrg.github.io/pokopia-affinites/
 
+## Version 2.1
+
+- **Spécialités** : les 33 spécialités en français sur chaque Pokémon, filtre « Spécialité » dans les colocataires, et le panneau Environnement indique qui peut allumer les lampes (Électrification) ou les feux (Combustion).
+- **Mes Pokémon** : nouvel onglet pour indiquer la ville de chaque Pokémon ; filtre « Même ville » / « Ceux que j'ai » dans les colocataires ; l'Habitadex signale les Pokémon encore à découvrir.
+- **Événements** : bandeau avec l'événement en cours, ses Pokémon et ses habitats, et le prochain rendez-vous (liste à mettre à jour dans `EVENTS` et `COMING`).
+
 ## Version 2.0 : l'Habitadex
 
 - Nouvel onglet **Habitadex** : les 257 habitats du jeu (209 du jeu principal, 36 de Fonds-Bulleux, 12 d'événement), avec leur illustration, les matériaux à poser et les Pokémon attirés (rareté, ville, moment de la journée, météo).

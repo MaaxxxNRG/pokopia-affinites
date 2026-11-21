@@ -1,4 +1,4 @@
-const CACHE = "pokopia-v7";
+const CACHE = "pokopia-v8";
 const CORE = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png", "apple-touch-icon.png", "habitats.webp", "materiaux.webp"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE))); self.skipWaiting(); });
 self.addEventListener("activate", e => {
